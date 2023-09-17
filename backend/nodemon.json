@@ -1,4 +1,7 @@
 {
   "watch": ["**"],
-  "ignore": ["node_modules", "dist"]
+  "ignore": ["swagger_output.json", "node_modules", "dist"],
+  "events": {
+    "start": "npm run swagger-autogen"
+  }
 }

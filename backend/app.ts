@@ -1,28 +1,14 @@
-import express, { Express, Request, Response } from 'express';
-import * as swaggerUiExpress from 'swagger-ui-express';
+import express, {Express, Request, Response} from 'express';
+import swagger from "./config/swagger";
 
 const app: Express = express();
 const port = 3000;
 
 app.get('/', (req: Request, res: Response) =>
-  res.send('backend'),
+  res.send('Welcome to Project X Backend!'),
 );
 
-app.get('/swagger/definition', (req: Request, res: Response) => {
-  res.sendFile(`${process.cwd()}/definitions/portfolio.yaml`);
-});
-
-app.use(
-  '/swagger',
-  swaggerUiExpress.serve,
-  swaggerUiExpress.setup(undefined, {
-    swaggerOptions: {
-      displayRequestDuration: true,
-      url: '/swagger/definition',
-    },
-  }),
-);
-
+app.use(swagger);
 app.use(express.json());
 
 app.listen(port, function () {
