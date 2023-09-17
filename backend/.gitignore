@@ -4,3 +4,4 @@ dist
 .DS_Store
 *.iml
 swagger_output.json
+.env.local
