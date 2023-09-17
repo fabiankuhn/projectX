@@ -11,7 +11,7 @@ services:
     ports:
       - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
     volumes:
-      - db:/data/db
+      - ./db:/data/db
   app:
     depends_on:
       - mongodb
